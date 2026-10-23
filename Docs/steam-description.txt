@@ -2,7 +2,7 @@
 
 There's nothing to set up and no menus to learn. Press the key, arrange your colonists the way you want them for a raid, and press it again to put everything back. Next time trouble comes, one press brings your alert setup straight back.
 
-Alert! is manual, and it always will be. It never switches on by itself when a raid arrives. You decide when the colony goes on alert and when it stands down.
+Colony Alert is manual, and it always will be. It never switches on by itself when a raid arrives. You decide when the colony goes on alert and when it stands down.
 
 [h2]Features[/h2]
 [list]

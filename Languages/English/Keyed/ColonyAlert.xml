@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <ColonyAlert_Banner>ALERT</ColonyAlert_Banner>
+  <ColonyAlert_BannerTip>Alert status is on. Click or press {0} to return to normal.</ColonyAlert_BannerTip>
+  <ColonyAlert_On>Alert status on.</ColonyAlert_On>
+  <ColonyAlert_Off>Alert status off. Normal settings restored.</ColonyAlert_Off>
+
+  <ColonyAlert_SettingsSwitch>Switch between normal and alert:</ColonyAlert_SettingsSwitch>
+  <ColonyAlert_SettingAreas>Allowed areas</ColonyAlert_SettingAreas>
+  <ColonyAlert_SettingSchedules>Schedules</ColonyAlert_SettingSchedules>
+  <ColonyAlert_SettingWork>Work priorities</ColonyAlert_SettingWork>
+  <ColonyAlert_SettingApparel>Apparel policies</ColonyAlert_SettingApparel>
+  <ColonyAlert_SettingFood>Food policies</ColonyAlert_SettingFood>
+  <ColonyAlert_SettingDrugs>Drug policies</ColonyAlert_SettingDrugs>
+  <ColonyAlert_SettingReading>Reading policies</ColonyAlert_SettingReading>
+  <ColonyAlert_SettingHostility>Hostility response</ColonyAlert_SettingHostility>
+  <ColonyAlert_SettingAnimals>Tame animals' allowed areas</ColonyAlert_SettingAnimals>
+  <ColonyAlert_SettingsDisplay>Display:</ColonyAlert_SettingsDisplay>
+  <ColonyAlert_SettingBorder>Red screen border during alert</ColonyAlert_SettingBorder>
+  <ColonyAlert_SettingSound>Play a sound when switching</ColonyAlert_SettingSound>
+  <ColonyAlert_SettingMessage>Show a message when switching</ColonyAlert_SettingMessage>
+</LanguageData>

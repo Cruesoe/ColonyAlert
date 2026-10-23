@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <KeyBindingDef ParentName="GameKeyBinding">
-    <defName>Alert_Toggle</defName>
+    <defName>ColonyAlert_Toggle</defName>
     <label>toggle alert status</label>
     <defaultKeyCodeA>F9</defaultKeyCodeA>
   </KeyBindingDef>

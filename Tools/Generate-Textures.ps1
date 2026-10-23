@@ -1,6 +1,6 @@
-# Draws the alert banner background and warning icon into Textures\Alert, in the preview's red, at twice their on-screen size.
+# Draws the alert banner background and warning icon into Textures\ColonyAlert, in the preview's red, at twice their on-screen size.
 param(
-    [string]$OutDir = (Join-Path $PSScriptRoot '..\Textures\Alert'),
+    [string]$OutDir = (Join-Path $PSScriptRoot '..\Textures\ColonyAlert'),
     [int]$Red = 214,
     [int]$Green = 64,
     [int]$Blue = 58

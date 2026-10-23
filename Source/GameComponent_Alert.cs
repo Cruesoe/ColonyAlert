@@ -5,12 +5,12 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 
-namespace Alert
+namespace ColonyAlert
 {
     /// <summary>Holds the current status and each pawn's remembered settings for both statuses, and draws the alert indicator.</summary>
     public class GameComponent_Alert : GameComponent
     {
-        // Banner layout matches Textures/Alert/Banner.png at half size: hazard stripes 24 wide at each end
+        // Banner layout matches Textures/ColonyAlert/Banner.png at half size: hazard stripes 24 wide at each end
         private const float BannerWidth = 220f;
         private const float BannerHeight = 44f;
         private const float IconSize = 32f;
@@ -56,11 +56,11 @@ namespace Alert
 
             if (AlertMod.Settings.sound)
             {
-                (alert ? AlertDefOf.Alert_Klaxon : AlertDefOf.Alert_StandDown).PlayOneShotOnCamera();
+                (alert ? AlertDefOf.ColonyAlert_Klaxon : AlertDefOf.ColonyAlert_StandDown).PlayOneShotOnCamera();
             }
             if (AlertMod.Settings.message)
             {
-                Messages.Message((alert ? "Alert_On" : "Alert_Off").Translate(), MessageTypeDefOf.SilentInput, false);
+                Messages.Message((alert ? "ColonyAlert_On" : "ColonyAlert_Off").Translate(), MessageTypeDefOf.SilentInput, false);
             }
         }
 
@@ -83,7 +83,7 @@ namespace Alert
 
         public override void GameComponentOnGUI()
         {
-            if (Event.current.type == EventType.KeyDown && AlertDefOf.Alert_Toggle.KeyDownEvent)
+            if (Event.current.type == EventType.KeyDown && AlertDefOf.ColonyAlert_Toggle.KeyDownEvent)
             {
                 Toggle();
                 Event.current.Use();
@@ -151,10 +151,10 @@ namespace Alert
 
             Text.Font = GameFont.Medium;
             Text.Anchor = TextAnchor.MiddleLeft;
-            Widgets.Label(new Rect(banner.x + TextInset, banner.y, BannerWidth - TextInset - StripeWidth, BannerHeight), "Alert_Banner".Translate());
+            Widgets.Label(new Rect(banner.x + TextInset, banner.y, BannerWidth - TextInset - StripeWidth, BannerHeight), "ColonyAlert_Banner".Translate());
             Text.Anchor = TextAnchor.UpperLeft;
             Text.Font = GameFont.Small;
-            TooltipHandler.TipRegion(banner, "Alert_BannerTip".Translate(AlertDefOf.Alert_Toggle.MainKeyLabel));
+            TooltipHandler.TipRegion(banner, "ColonyAlert_BannerTip".Translate(AlertDefOf.ColonyAlert_Toggle.MainKeyLabel));
 
             // The banner draws beneath windows, so ignore clicks meant for a window over it
             if (Find.WindowStack.GetWindowAt(UI.MousePositionOnUIInverted) == null && Widgets.ButtonInvisible(banner))

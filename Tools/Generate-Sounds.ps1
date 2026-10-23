@@ -1,6 +1,6 @@
-# Synthesizes the switching sounds into Sounds\Alert as 16-bit mono 44.1 kHz WAV: a soft two-blast klaxon for going on alert and a falling two-tone chime for standing down.
+# Synthesizes the switching sounds into Sounds\ColonyAlert as 16-bit mono 44.1 kHz WAV: a soft two-blast klaxon for going on alert and a falling two-tone chime for standing down.
 param(
-    [string]$OutDir = (Join-Path $PSScriptRoot '..\Sounds\Alert')
+    [string]$OutDir = (Join-Path $PSScriptRoot '..\Sounds\ColonyAlert')
 )
 New-Item -ItemType Directory -Force -Path $OutDir | Out-Null
 $OutDir = (Resolve-Path $OutDir).Path

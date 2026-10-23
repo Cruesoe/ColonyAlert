@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <SoundDef>
-    <defName>Alert_Klaxon</defName>
+    <defName>ColonyAlert_Klaxon</defName>
     <maxSimultaneous>1</maxSimultaneous>
     <subSounds>
       <li>
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Clip">
-            <clipPath>Alert/Klaxon</clipPath>
+            <clipPath>ColonyAlert/Klaxon</clipPath>
           </li>
         </grains>
         <volumeRange>22~22</volumeRange>
@@ -16,14 +16,14 @@
     </subSounds>
   </SoundDef>
   <SoundDef>
-    <defName>Alert_StandDown</defName>
+    <defName>ColonyAlert_StandDown</defName>
     <maxSimultaneous>1</maxSimultaneous>
     <subSounds>
       <li>
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Clip">
-            <clipPath>Alert/StandDown</clipPath>
+            <clipPath>ColonyAlert/StandDown</clipPath>
           </li>
         </grains>
         <volumeRange>22~22</volumeRange>

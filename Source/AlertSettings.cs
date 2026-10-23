@@ -1,6 +1,6 @@
 using Verse;
 
-namespace Alert
+namespace ColonyAlert
 {
     public class AlertSettings : ModSettings
     {

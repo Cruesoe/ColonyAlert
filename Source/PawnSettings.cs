@@ -4,7 +4,7 @@ using System.Reflection;
 using RimWorld;
 using Verse;
 
-namespace Alert
+namespace ColonyAlert
 {
     /// <summary>One pawn's remembered settings for one status. Policies and areas are stored by ID so deleted ones are skipped on restore.</summary>
     public class PawnSettings : IExposable
