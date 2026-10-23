@@ -10,8 +10,13 @@ namespace Alert
     /// <summary>Holds the current status and each pawn's remembered settings for both statuses, and draws the alert indicator.</summary>
     public class GameComponent_Alert : GameComponent
     {
-        private const float BannerWidth = 140f;
-        private const float BannerHeight = 34f;
+        // Banner layout matches Textures/Alert/Banner.png at half size: hazard stripes 24 wide at each end
+        private const float BannerWidth = 220f;
+        private const float BannerHeight = 44f;
+        private const float IconSize = 32f;
+        private const float IconInset = 40f;
+        private const float TextInset = 80f;
+        private const float StripeWidth = 24f;
         private const float MainButtonsHeight = 35f;
         private const float BorderThickness = 3f;
         private const int SeedInterval = 250;
@@ -128,17 +133,25 @@ namespace Alert
                 float width = UI.screenWidth;
                 float height = UI.screenHeight;
                 Widgets.DrawBoxSolid(new Rect(0f, 0f, width, BorderThickness), AlertRed);
+                Widgets.DrawBoxSolid(new Rect(0f, height - MainButtonsHeight - BorderThickness, width, BorderThickness), AlertRed);
                 Widgets.DrawBoxSolid(new Rect(0f, height - BorderThickness, width, BorderThickness), AlertRed);
                 Widgets.DrawBoxSolid(new Rect(0f, 0f, BorderThickness, height), AlertRed);
                 Widgets.DrawBoxSolid(new Rect(width - BorderThickness, 0f, BorderThickness, height), AlertRed);
             }
 
-            Rect banner = new Rect((UI.screenWidth - BannerWidth) / 2f, UI.screenHeight - MainButtonsHeight - BannerHeight - 6f, BannerWidth, BannerHeight);
-            Widgets.DrawBoxSolidWithOutline(banner, AlertRed, Color.white);
-            Widgets.DrawHighlightIfMouseover(banner);
+            Rect banner = new Rect((UI.screenWidth - BannerWidth) / 2f, UI.screenHeight - MainButtonsHeight - BannerHeight - 8f, BannerWidth, BannerHeight);
+            GUI.DrawTexture(banner, AlertTextures.Banner);
+            Widgets.DrawHighlightIfMouseover(banner.ContractedBy(StripeWidth, 3f));
+
+            // The warning icon pulses slowly between full and 55% opacity
+            float pulse = 0.775f + 0.225f * Mathf.Sin(Time.realtimeSinceStartup * 3f);
+            GUI.color = new Color(1f, 1f, 1f, pulse);
+            GUI.DrawTexture(new Rect(banner.x + IconInset, banner.y + (BannerHeight - IconSize) / 2f, IconSize, IconSize), AlertTextures.Warning);
+            GUI.color = Color.white;
+
             Text.Font = GameFont.Medium;
-            Text.Anchor = TextAnchor.MiddleCenter;
-            Widgets.Label(banner, "Alert_Banner".Translate());
+            Text.Anchor = TextAnchor.MiddleLeft;
+            Widgets.Label(new Rect(banner.x + TextInset, banner.y, BannerWidth - TextInset - StripeWidth, BannerHeight), "Alert_Banner".Translate());
             Text.Anchor = TextAnchor.UpperLeft;
             Text.Font = GameFont.Small;
             TooltipHandler.TipRegion(banner, "Alert_BannerTip".Translate(AlertDefOf.Alert_Toggle.MainKeyLabel));
