@@ -56,7 +56,7 @@ namespace Alert
 
             if (AlertMod.Settings.sound)
             {
-                (alert ? SoundDefOf.Tick_High : SoundDefOf.Tick_Low).PlayOneShotOnCamera();
+                (alert ? AlertDefOf.Alert_Klaxon : AlertDefOf.Alert_StandDown).PlayOneShotOnCamera();
             }
             if (AlertMod.Settings.message)
             {
