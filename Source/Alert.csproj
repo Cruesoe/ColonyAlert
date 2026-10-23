@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Alert</RootNamespace>
+    <AssemblyName>Alert</AssemblyName>
+    <Nullable>enable</Nullable>
+    <UseHarmony>false</UseHarmony>
+    <UnityModules>CoreModule;IMGUIModule;TextRenderingModule</UnityModules>
+  </PropertyGroup>
+
+</Project>

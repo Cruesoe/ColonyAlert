@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <Alert_Banner>ALERT</Alert_Banner>
+  <Alert_BannerTip>Alert status is on. Click or press {0} to return to normal.</Alert_BannerTip>
+  <Alert_On>Alert status on.</Alert_On>
+  <Alert_Off>Alert status off. Normal settings restored.</Alert_Off>
+
+  <Alert_SettingsSwitch>Switch between normal and alert:</Alert_SettingsSwitch>
+  <Alert_SettingAreas>Allowed areas</Alert_SettingAreas>
+  <Alert_SettingSchedules>Schedules</Alert_SettingSchedules>
+  <Alert_SettingWork>Work priorities</Alert_SettingWork>
+  <Alert_SettingApparel>Apparel policies</Alert_SettingApparel>
+  <Alert_SettingFood>Food policies</Alert_SettingFood>
+  <Alert_SettingDrugs>Drug policies</Alert_SettingDrugs>
+  <Alert_SettingReading>Reading policies</Alert_SettingReading>
+  <Alert_SettingHostility>Hostility response</Alert_SettingHostility>
+  <Alert_SettingAnimals>Tame animals' allowed areas</Alert_SettingAnimals>
+  <Alert_SettingsDisplay>Display:</Alert_SettingsDisplay>
+  <Alert_SettingBorder>Red screen border during alert</Alert_SettingBorder>
+  <Alert_SettingSound>Play a sound when switching</Alert_SettingSound>
+  <Alert_SettingMessage>Show a message when switching</Alert_SettingMessage>
+</LanguageData>

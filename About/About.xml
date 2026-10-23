@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Alert!</name>
+  <author>Cruesoe</author>
+  <packageId>cruesoe.alert</packageId>
+  <modVersion IgnoreIfNoMatchingField="True">261023</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <description>One key switches your colony between normal and alert status.
+
+Each status remembers its own settings for every colonist: allowed area, schedule, work priorities, apparel, food, drug and reading policies, and hostility response. Tame animals' allowed areas are remembered too. There's nothing to set up: press the key, arrange your colonists the way you want them during a raid, and press it again to put everything back. Next time, one press brings the alert settings back.
+
+While alert status is on, a red border and an ALERT banner stay on screen. Click the banner to return to normal.
+
+The default key is F9. Change it in Options -&gt; Controls -&gt; Keyboard Configuration: Modify -&gt; In-game global -&gt; Toggle alert status. What switches, the border and the sound can be changed in the mod settings.
+
+Safe to add to an existing save. Return to normal before removing the mod, or colonists keep their alert settings.</description>
+</ModMetaData>
