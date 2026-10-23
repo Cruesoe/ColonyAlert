@@ -1,0 +1,27 @@
+[b]One key switches your colony between normal and alert status, and each status remembers how you set up your colonists.[/b]
+
+There's nothing to set up and no menus to learn. Press the key, arrange your colonists the way you want them for a raid, and press it again to put everything back. Next time trouble comes, one press brings your alert setup straight back.
+
+Alert! is manual, and it always will be. It never switches on by itself when a raid arrives. You decide when the colony goes on alert and when it stands down.
+
+[h2]Features[/h2]
+[list]
+[*][b]One key:[/b] Press F9 to switch between normal and alert status. Press it again to switch back.
+[*][b]Remembers both statuses:[/b] Whatever you change while on alert is kept for alert, and whatever you change in normal times is kept for normal.
+[*][b]What switches:[/b] Each colonist's allowed area, schedule, work priorities, apparel, food, drug and reading policies, and hostility response, plus tame animals' allowed areas.
+[*][b]No setup:[/b] The first time you go on alert, your colonists keep their normal settings until you change them.
+[*][b]Always visible:[/b] A red border and an ALERT banner stay on screen while alert status is on. Click the banner to stand down.
+[*][b]New arrivals:[/b] Colonists who join during an alert keep the settings they arrived with as their normal ones.
+[*][b]Nothing breaks:[/b] If you delete an area or policy, colonists simply keep their current one for that setting.
+[/list]
+
+[h2]Settings[/h2]
+[list]
+[*][b]Key:[/b] Change it in Options, Controls, Keyboard Configuration, under "In-game global". The default is F9.
+[*][b]What switches:[/b] Turn each kind of setting on or off, including animals' allowed areas.
+[*][b]Display:[/b] Turn the red border, the switching sound and the switching message on or off.
+[/list]
+
+[h2]Compatibility[/h2]
+Mods that also switch these settings, such as Better Pawn Control's presets, will overwrite each other's changes, so use one or the other for the same settings.
+Safe to add to an existing save. Stand down from alert before removing the mod, or your colonists keep their alert settings.

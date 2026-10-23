@@ -10,7 +10,11 @@
   </supportedVersions>
   <description>One key switches your colony between normal and alert status.
 
-Each status remembers its own settings for every colonist: allowed area, schedule, work priorities, apparel, food, drug and reading policies, and hostility response. Tame animals' allowed areas are remembered too. There's nothing to set up: press the key, arrange your colonists the way you want them during a raid, and press it again to put everything back. Next time, one press brings the alert settings back.
+There's nothing to set up and no menus to learn. Press the key, arrange your colonists the way you want them for a raid, and press it again to put everything back. Next time, one press brings your alert setup straight back.
+
+Alert! is manual, and it always will be. It never switches on by itself when a raid arrives: you decide when the colony goes on alert and when it stands down.
+
+Each status remembers its own settings for every colonist: allowed area, schedule, work priorities, apparel, food, drug and reading policies, and hostility response. Tame animals' allowed areas are remembered too.
 
 While alert status is on, a red border and an ALERT banner stay on screen. Click the banner to return to normal.
 
