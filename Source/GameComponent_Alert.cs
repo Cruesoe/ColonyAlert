@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -92,6 +93,15 @@ namespace ColonyAlert
                 Event.current.Use();
                 return;
             }
+            // On the map the indicator is drawn by MapComponent_AlertIndicator, after pawn labels
+            if (Find.CurrentMap == null || !WorldRendererUtility.DrawingMap)
+            {
+                DrawIndicatorIfActive();
+            }
+        }
+
+        public void DrawIndicatorIfActive()
+        {
             if (alert && Find.ScreenshotModeHandler?.Active != true)
             {
                 DrawIndicator();
