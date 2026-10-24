@@ -86,9 +86,12 @@ namespace ColonyAlert
             return result;
         }
 
+        // Restores only the kinds of setting that are switched on now, whatever was saved
         public void Apply(Pawn pawn)
         {
-            if (hasArea && pawn.playerSettings != null && pawn.MapHeld is Map map && map.uniqueID == mapId)
+            AlertSettings s = AlertMod.Settings;
+
+            if (hasArea && (pawn.RaceProps.Humanlike ? s.areas : s.animals) && pawn.playerSettings != null && pawn.MapHeld is Map map && map.uniqueID == mapId)
             {
                 if (areaId < 0)
                 {
@@ -104,7 +107,7 @@ namespace ColonyAlert
                 }
             }
 
-            if (times != null && pawn.timetable?.times != null)
+            if (s.schedules && times != null && pawn.timetable?.times != null)
             {
                 for (int hour = 0; hour < times.Count && hour < pawn.timetable.times.Count; hour++)
                 {
@@ -116,7 +119,7 @@ namespace ColonyAlert
                 }
             }
 
-            if (work != null && pawn.workSettings != null && pawn.workSettings.EverWork)
+            if (s.work && work != null && pawn.workSettings != null && pawn.workSettings.EverWork)
             {
                 foreach (KeyValuePair<string, int> entry in work)
                 {
@@ -128,7 +131,7 @@ namespace ColonyAlert
                 }
             }
 
-            if (apparelId >= 0 && pawn.outfits != null)
+            if (s.apparel && apparelId >= 0 && pawn.outfits != null)
             {
                 ApparelPolicy? policy = Current.Game.outfitDatabase.AllOutfits.Find(p => p.id == apparelId);
                 if (policy != null)
@@ -136,7 +139,7 @@ namespace ColonyAlert
                     pawn.outfits.CurrentApparelPolicy = policy;
                 }
             }
-            if (foodId >= 0 && pawn.foodRestriction != null && pawn.foodRestriction.Configurable)
+            if (s.food && foodId >= 0 && pawn.foodRestriction != null && pawn.foodRestriction.Configurable)
             {
                 FoodPolicy? policy = Current.Game.foodRestrictionDatabase.AllFoodRestrictions.Find(p => p.id == foodId);
                 if (policy != null)
@@ -144,7 +147,7 @@ namespace ColonyAlert
                     pawn.foodRestriction.CurrentFoodPolicy = policy;
                 }
             }
-            if (drugId >= 0 && pawn.drugs != null)
+            if (s.drugs && drugId >= 0 && pawn.drugs != null)
             {
                 DrugPolicy? policy = Current.Game.drugPolicyDatabase.AllPolicies.Find(p => p.id == drugId);
                 if (policy != null)
@@ -152,7 +155,7 @@ namespace ColonyAlert
                     pawn.drugs.CurrentPolicy = policy;
                 }
             }
-            if (readingId >= 0 && pawn.reading != null)
+            if (s.reading && readingId >= 0 && pawn.reading != null)
             {
                 ReadingPolicy? policy = Current.Game.readingPolicyDatabase.AllReadingPolicies.Find(p => p.id == readingId);
                 if (policy != null)
@@ -162,7 +165,7 @@ namespace ColonyAlert
             }
 
             // Pawns incapable of violence can't be set to attack
-            if (hasHostility && pawn.playerSettings != null && pawn.playerSettings.UsesConfigurableHostilityResponse
+            if (s.hostility && hasHostility && pawn.playerSettings != null && pawn.playerSettings.UsesConfigurableHostilityResponse
                 && (hostility != HostilityResponseMode.Attack || !pawn.WorkTagIsDisabled(WorkTags.Violent)))
             {
                 pawn.playerSettings.hostilityResponse = hostility;

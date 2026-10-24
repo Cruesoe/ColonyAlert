@@ -20,12 +20,14 @@ namespace ColonyAlert
         private const float MainButtonsHeight = 35f;
         private const float BorderThickness = 3f;
         private const int SeedInterval = 250;
+        private const int BannerTipId = 0x434C4154;
 
         private static readonly Color AlertRed = new Color(0.8f, 0.1f, 0.1f, 0.85f);
 
         private bool alert;
         private Dictionary<string, PawnSettings> normal = new Dictionary<string, PawnSettings>();
         private Dictionary<string, PawnSettings> alerted = new Dictionary<string, PawnSettings>();
+        private string? bannerLabel;
 
         public GameComponent_Alert(Game game)
         {
@@ -83,7 +85,8 @@ namespace ColonyAlert
 
         public override void GameComponentOnGUI()
         {
-            if (Event.current.type == EventType.KeyDown && AlertDefOf.ColonyAlert_Toggle.KeyDownEvent)
+            // This runs before the window stack, so leave keys alone while the key binding dialog is waiting for one
+            if (Event.current.type == EventType.KeyDown && !Find.WindowStack.IsOpen<Dialog_DefineBinding>() && AlertDefOf.ColonyAlert_Toggle.KeyDownEvent)
             {
                 Toggle();
                 Event.current.Use();
@@ -151,10 +154,11 @@ namespace ColonyAlert
 
             Text.Font = GameFont.Medium;
             Text.Anchor = TextAnchor.MiddleLeft;
-            Widgets.Label(new Rect(banner.x + TextInset, banner.y, BannerWidth - TextInset - StripeWidth, BannerHeight), "ColonyAlert_Banner".Translate());
+            bannerLabel ??= "ColonyAlert_Banner".Translate();
+            Widgets.Label(new Rect(banner.x + TextInset, banner.y, BannerWidth - TextInset - StripeWidth, BannerHeight), bannerLabel);
             Text.Anchor = TextAnchor.UpperLeft;
             Text.Font = GameFont.Small;
-            TooltipHandler.TipRegion(banner, "ColonyAlert_BannerTip".Translate(AlertDefOf.ColonyAlert_Toggle.MainKeyLabel));
+            TooltipHandler.TipRegion(banner, () => "ColonyAlert_BannerTip".Translate(AlertDefOf.ColonyAlert_Toggle.MainKeyLabel), BannerTipId);
 
             // The banner draws beneath windows, so ignore clicks meant for a window over it
             if (Find.WindowStack.GetWindowAt(UI.MousePositionOnUIInverted) == null && Widgets.ButtonInvisible(banner))
