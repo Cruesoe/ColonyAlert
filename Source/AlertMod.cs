@@ -28,6 +28,14 @@ namespace ColonyAlert
             listing.CheckboxLabeled("ColonyAlert_SettingReading".Translate(), ref Settings.reading);
             listing.CheckboxLabeled("ColonyAlert_SettingHostility".Translate(), ref Settings.hostility);
             listing.CheckboxLabeled("ColonyAlert_SettingAnimals".Translate(), ref Settings.animals);
+            // Colony mechanoids need Biotech, so the option is greyed out without it
+            Rect mechRow = listing.GetRect(Text.LineHeight);
+            listing.Gap(listing.verticalSpacing);
+            Widgets.CheckboxLabeled(mechRow, "ColonyAlert_SettingMechanoids".Translate(), ref Settings.mechanoids, !ModsConfig.BiotechActive);
+            if (!ModsConfig.BiotechActive)
+            {
+                TooltipHandler.TipRegion(mechRow, "ColonyAlert_SettingMechanoidsBiotech".Translate());
+            }
             listing.GapLine();
             listing.Label("ColonyAlert_SettingsDisplay".Translate());
             listing.CheckboxLabeled("ColonyAlert_SettingBorder".Translate(), ref Settings.border);

@@ -8,7 +8,7 @@ Colony Alert is manual, and it always will be. It never switches on by itself wh
 [list]
 [*][b]One key:[/b] Press F9 to switch between normal and alert status. Press it again to switch back.
 [*][b]Remembers both statuses:[/b] Whatever you change while on alert is kept for alert, and whatever you change in normal times is kept for normal.
-[*][b]What switches:[/b] Each colonist's allowed area, schedule, work priorities, apparel, food, drug and reading policies, and hostility response, plus tame animals' allowed areas.
+[*][b]What switches:[/b] Each colonist's allowed area, schedule, work priorities, apparel, food, drug and reading policies, and hostility response, plus tame animals' and colony mechanoids' allowed areas.
 [*][b]No setup:[/b] The first time you go on alert, your colonists keep their normal settings until you change them.
 [*][b]Always visible:[/b] A red border and an ALERT banner stay on screen while alert status is on. Click the banner to stand down.
 [*][b]New arrivals:[/b] Colonists who join during an alert keep the settings they arrived with as their normal ones.
@@ -18,7 +18,7 @@ Colony Alert is manual, and it always will be. It never switches on by itself wh
 [h2]Settings[/h2]
 [list]
 [*][b]Key:[/b] Change it in Options, Controls, Keyboard Configuration, under "In-game global". The default is F9.
-[*][b]What switches:[/b] Turn each kind of setting on or off, including animals' allowed areas.
+[*][b]What switches:[/b] Turn each kind of setting on or off, including animals' and mechanoids' allowed areas.
 [*][b]Display:[/b] Turn the red border, the switching sound and the switching message on or off.
 [/list]
 
