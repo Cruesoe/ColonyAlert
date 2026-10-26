@@ -26,7 +26,14 @@ namespace ColonyAlert
 
         public static bool IsTracked(Pawn pawn)
         {
-            return pawn.RaceProps.Humanlike || (pawn.RaceProps.Animal && AlertMod.Settings.animals);
+            return pawn.RaceProps.Humanlike || (pawn.RaceProps.Animal && AlertMod.Settings.animals) || (pawn.RaceProps.IsMechanoid && AlertMod.Settings.mechanoids);
+        }
+
+        // Colonists, animals and mechanoids each have their own allowed-area setting
+        private static bool AreasSwitched(Pawn pawn)
+        {
+            AlertSettings s = AlertMod.Settings;
+            return pawn.RaceProps.Humanlike ? s.areas : pawn.RaceProps.IsMechanoid ? s.mechanoids : s.animals;
         }
 
         public static PawnSettings Capture(Pawn pawn)
@@ -35,7 +42,7 @@ namespace ColonyAlert
             PawnSettings result = new PawnSettings();
             bool humanlike = pawn.RaceProps.Humanlike;
 
-            if ((humanlike ? s.areas : s.animals) && pawn.playerSettings != null && pawn.playerSettings.SupportsAllowedAreas && pawn.MapHeld != null)
+            if (AreasSwitched(pawn) && pawn.playerSettings != null && pawn.playerSettings.SupportsAllowedAreas && pawn.MapHeld != null)
             {
                 result.hasArea = true;
                 result.mapId = pawn.MapHeld.uniqueID;
@@ -91,7 +98,7 @@ namespace ColonyAlert
         {
             AlertSettings s = AlertMod.Settings;
 
-            if (hasArea && (pawn.RaceProps.Humanlike ? s.areas : s.animals) && pawn.playerSettings != null && pawn.MapHeld is Map map && map.uniqueID == mapId)
+            if (hasArea && AreasSwitched(pawn) && pawn.playerSettings != null && pawn.MapHeld is Map map && map.uniqueID == mapId)
             {
                 if (areaId < 0)
                 {

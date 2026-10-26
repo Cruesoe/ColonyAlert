@@ -15,6 +15,8 @@
   <ColonyAlert_SettingReading>Reading policies</ColonyAlert_SettingReading>
   <ColonyAlert_SettingHostility>Hostility response</ColonyAlert_SettingHostility>
   <ColonyAlert_SettingAnimals>Tame animals' allowed areas</ColonyAlert_SettingAnimals>
+  <ColonyAlert_SettingMechanoids>Colony mechanoids' allowed areas</ColonyAlert_SettingMechanoids>
+  <ColonyAlert_SettingMechanoidsBiotech>Requires Biotech.</ColonyAlert_SettingMechanoidsBiotech>
   <ColonyAlert_SettingsDisplay>Display:</ColonyAlert_SettingsDisplay>
   <ColonyAlert_SettingBorder>Red screen border during alert</ColonyAlert_SettingBorder>
   <ColonyAlert_SettingSound>Play a sound when switching</ColonyAlert_SettingSound>
