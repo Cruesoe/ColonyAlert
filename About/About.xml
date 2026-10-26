@@ -3,7 +3,7 @@
   <name>Colony Alert</name>
   <author>Cruesoe</author>
   <packageId>cruesoe.colonyalert</packageId>
-  <modVersion IgnoreIfNoMatchingField="True">261024</modVersion>
+  <modVersion IgnoreIfNoMatchingField="True">261026</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
