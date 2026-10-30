@@ -16,7 +16,7 @@ Colony Alert is manual, and it always will be. It never switches on by itself wh
 
 Each status remembers its own settings for every colonist: allowed area, schedule, work priorities, apparel, food, drug and reading policies, and hostility response. Tame animals' allowed areas are remembered too.
 
-While alert status is on, a red border and an ALERT banner stay on screen. Click the banner to return to normal.
+While alert status is on, a red border and an ALERT banner stay on screen. Press the key again to return to normal.
 
 The default key is F9. Change it in Options -&gt; Controls -&gt; Keyboard Configuration: Modify -&gt; In-game global -&gt; Toggle alert status. What switches, the border and the sound can be changed in the mod settings.
 

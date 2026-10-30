@@ -10,7 +10,7 @@ Colony Alert is manual, and it always will be. It never switches on by itself wh
 [*][b]Remembers both statuses:[/b] Whatever you change while on alert is kept for alert, and whatever you change in normal times is kept for normal.
 [*][b]What switches:[/b] Each colonist's allowed area, schedule, work priorities, apparel, food, drug and reading policies, and hostility response, plus tame animals' and colony mechanoids' allowed areas.
 [*][b]No setup:[/b] The first time you go on alert, your colonists keep their normal settings until you change them.
-[*][b]Always visible:[/b] A red border and an ALERT banner stay on screen while alert status is on. Click the banner to stand down.
+[*][b]Always visible:[/b] A red border and an ALERT banner stay on screen while alert status is on. Press the key again to stand down.
 [*][b]New arrivals:[/b] Colonists who join during an alert keep the settings they arrived with as their normal ones.
 [*][b]Nothing breaks:[/b] If you delete an area or policy, colonists simply keep their current one for that setting.
 [/list]
