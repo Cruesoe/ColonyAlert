@@ -22,6 +22,12 @@ Colony Alert is manual, and it always will be. It never switches on by itself wh
 [*][b]Display:[/b] Turn the red border, the switching sound and the switching message on or off.
 [/list]
 
+[h2]FAQ[/h2]
+[b]Why not Better Pawn Control?[/b]
+Better Pawn Control is for many named presets. Colony Alert is one key, two statuses and nothing to set up: it remembers whatever you change on alert and in normal times.
+
+[b]Can I use both?[/b]
+Not for the same settings, or they overwrite each other. Turn the overlapping ones off in either mod.
+
 [h2]Compatibility[/h2]
-Mods that also switch these settings, such as Better Pawn Control's presets, will overwrite each other's changes, so use one or the other for the same settings.
 Safe to add to an existing save. Stand down from alert before removing the mod, or your colonists keep their alert settings.
