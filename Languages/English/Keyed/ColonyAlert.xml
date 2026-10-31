@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <ColonyAlert_Banner>ALERT</ColonyAlert_Banner>
-  <ColonyAlert_BannerTip>Alert status is on. Click or press {0} to return to normal.</ColonyAlert_BannerTip>
+  <ColonyAlert_BannerTip>Alert status is on. Press {0} to return to normal.</ColonyAlert_BannerTip>
   <ColonyAlert_On>Alert status on.</ColonyAlert_On>
   <ColonyAlert_Off>Alert status off. Normal settings restored.</ColonyAlert_Off>
 

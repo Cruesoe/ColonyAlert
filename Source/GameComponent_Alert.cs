@@ -154,7 +154,6 @@ namespace ColonyAlert
 
             Rect banner = new Rect((UI.screenWidth - BannerWidth) / 2f, UI.screenHeight - MainButtonsHeight - BannerHeight - 8f, BannerWidth, BannerHeight);
             GUI.DrawTexture(banner, AlertTextures.Banner);
-            Widgets.DrawHighlightIfMouseover(banner.ContractedBy(StripeWidth, 3f));
 
             // The warning icon pulses slowly between full and 55% opacity
             float pulse = 0.775f + 0.225f * Mathf.Sin(Time.realtimeSinceStartup * 3f);
@@ -169,12 +168,6 @@ namespace ColonyAlert
             Text.Anchor = TextAnchor.UpperLeft;
             Text.Font = GameFont.Small;
             TooltipHandler.TipRegion(banner, () => "ColonyAlert_BannerTip".Translate(AlertDefOf.ColonyAlert_Toggle.MainKeyLabel), BannerTipId);
-
-            // The banner draws beneath windows, so ignore clicks meant for a window over it
-            if (Find.WindowStack.GetWindowAt(UI.MousePositionOnUIInverted) == null && Widgets.ButtonInvisible(banner))
-            {
-                Toggle();
-            }
         }
     }
 }
