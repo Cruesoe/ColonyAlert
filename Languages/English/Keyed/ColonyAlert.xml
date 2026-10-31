@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <ColonyAlert_Banner>ALERT</ColonyAlert_Banner>
-  <ColonyAlert_BannerTip>Alert status is on. Press {0} to return to normal.</ColonyAlert_BannerTip>
   <ColonyAlert_On>Alert status on.</ColonyAlert_On>
   <ColonyAlert_Off>Alert status off. Normal settings restored.</ColonyAlert_Off>
 
@@ -19,6 +18,7 @@
   <ColonyAlert_SettingMechanoidsBiotech>Requires Biotech.</ColonyAlert_SettingMechanoidsBiotech>
   <ColonyAlert_SettingsDisplay>Display:</ColonyAlert_SettingsDisplay>
   <ColonyAlert_SettingBorder>Red screen border during alert</ColonyAlert_SettingBorder>
+  <ColonyAlert_SettingBanner>ALERT banner during alert</ColonyAlert_SettingBanner>
   <ColonyAlert_SettingSound>Play a sound when switching</ColonyAlert_SettingSound>
   <ColonyAlert_SettingMessage>Show a message when switching</ColonyAlert_SettingMessage>
 </LanguageData>

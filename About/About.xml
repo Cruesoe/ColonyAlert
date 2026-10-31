@@ -14,11 +14,11 @@ There's nothing to set up and no menus to learn. Press the key, arrange your col
 
 Colony Alert is manual, and it always will be. It never switches on by itself when a raid arrives: you decide when the colony goes on alert and when it stands down.
 
-Each status remembers its own settings for every colonist: allowed area, schedule, work priorities, apparel, food, drug and reading policies, and hostility response. Tame animals' allowed areas are remembered too.
+Each status remembers its own settings for every colonist: allowed area, schedule, work priorities, apparel, food, drug and reading policies, and hostility response. Tame animals' and colony mechanoids' allowed areas are remembered too.
 
 While alert status is on, a red border and an ALERT banner stay on screen. Press the key again to return to normal.
 
-The default key is F9. Change it in Options -&gt; Controls -&gt; Keyboard Configuration: Modify -&gt; In-game global -&gt; Toggle alert status. What switches, the border and the sound can be changed in the mod settings.
+The default key is F9. Change it in Options -&gt; Controls -&gt; Keyboard Configuration: Modify -&gt; In-game global -&gt; Toggle alert status. What switches, the border, the banner, the sound and the message can be changed in the mod settings.
 
 Safe to add to an existing save. Return to normal before removing the mod, or colonists keep their alert settings.</description>
 </ModMetaData>

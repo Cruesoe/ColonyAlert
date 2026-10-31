@@ -12,9 +12,8 @@ namespace ColonyAlert
         // GetPriority reports 3 for every enabled work type when manual priorities are off, so read the stored values directly
         private static readonly FieldInfo? PrioritiesField = typeof(Pawn_WorkSettings).GetField("priorities", BindingFlags.Instance | BindingFlags.NonPublic);
 
-        private bool hasArea;
-        private int mapId = -1;
-        private int areaId = -1;
+        // Allowed area ID by map uniqueID; -1 means unrestricted
+        private Dictionary<int, int>? areas;
         private List<string>? times;
         private Dictionary<string, int>? work;
         private int apparelId = -1;
@@ -36,17 +35,17 @@ namespace ColonyAlert
             return pawn.RaceProps.Humanlike ? s.areas : pawn.RaceProps.IsMechanoid ? s.mechanoids : s.animals;
         }
 
-        public static PawnSettings Capture(Pawn pawn)
+        // Starts from the previous values, so anything switched off or unreadable now is kept; areas on maps that no longer exist are dropped
+        public static PawnSettings Capture(Pawn pawn, PawnSettings? previous = null)
         {
             AlertSettings s = AlertMod.Settings;
-            PawnSettings result = new PawnSettings();
+            PawnSettings result = (PawnSettings?)previous?.MemberwiseClone() ?? new PawnSettings();
+            result.areas = previous?.areas?.Where(e => Find.Maps.Any(m => m.uniqueID == e.Key)).ToDictionary(e => e.Key, e => e.Value) ?? new Dictionary<int, int>();
             bool humanlike = pawn.RaceProps.Humanlike;
 
             if (AreasSwitched(pawn) && pawn.playerSettings != null && pawn.playerSettings.SupportsAllowedAreas && pawn.MapHeld != null)
             {
-                result.hasArea = true;
-                result.mapId = pawn.MapHeld.uniqueID;
-                result.areaId = pawn.playerSettings.AreaRestrictionInPawnCurrentMap?.ID ?? -1;
+                result.areas[pawn.MapHeld.uniqueID] = pawn.playerSettings.AreaRestrictionInPawnCurrentMap?.ID ?? -1;
             }
             if (!humanlike)
             {
@@ -98,7 +97,7 @@ namespace ColonyAlert
         {
             AlertSettings s = AlertMod.Settings;
 
-            if (hasArea && AreasSwitched(pawn) && pawn.playerSettings != null && pawn.MapHeld is Map map && map.uniqueID == mapId)
+            if (areas != null && AreasSwitched(pawn) && pawn.playerSettings != null && pawn.MapHeld is Map map && areas.TryGetValue(map.uniqueID, out int areaId))
             {
                 if (areaId < 0)
                 {
@@ -181,9 +180,21 @@ namespace ColonyAlert
 
         public void ExposeData()
         {
-            Scribe_Values.Look(ref hasArea, "hasArea");
-            Scribe_Values.Look(ref mapId, "mapId", -1);
-            Scribe_Values.Look(ref areaId, "areaId", -1);
+            Scribe_Collections.Look(ref areas, "areas", LookMode.Value, LookMode.Value);
+            if (Scribe.mode == LoadSaveMode.LoadingVars && areas == null)
+            {
+                // Older saves hold one area
+                bool hasArea = false;
+                int mapId = -1;
+                int areaId = -1;
+                Scribe_Values.Look(ref hasArea, "hasArea");
+                Scribe_Values.Look(ref mapId, "mapId", -1);
+                Scribe_Values.Look(ref areaId, "areaId", -1);
+                if (hasArea)
+                {
+                    areas = new Dictionary<int, int> { { mapId, areaId } };
+                }
+            }
             Scribe_Collections.Look(ref times, "times", LookMode.Value);
             Scribe_Collections.Look(ref work, "work", LookMode.Value, LookMode.Value);
             Scribe_Values.Look(ref apparelId, "apparelId", -1);
