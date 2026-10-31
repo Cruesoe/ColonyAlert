@@ -15,6 +15,7 @@ namespace ColonyAlert
         public bool animals = true;
         public bool mechanoids = true;
         public bool border = true;
+        public bool banner = true;
         public bool sound = true;
         public bool message = true;
 
@@ -31,6 +32,7 @@ namespace ColonyAlert
             Scribe_Values.Look(ref animals, "animals", true);
             Scribe_Values.Look(ref mechanoids, "mechanoids", true);
             Scribe_Values.Look(ref border, "border", true);
+            Scribe_Values.Look(ref banner, "banner", true);
             Scribe_Values.Look(ref sound, "sound", true);
             Scribe_Values.Look(ref message, "message", true);
         }

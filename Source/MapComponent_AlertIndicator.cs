@@ -1,4 +1,5 @@
 using RimWorld.Planet;
+using UnityEngine;
 using Verse;
 
 namespace ColonyAlert
@@ -12,7 +13,7 @@ namespace ColonyAlert
 
         public override void MapComponentOnGUI()
         {
-            if (WorldRendererUtility.DrawingMap)
+            if (Event.current.type == EventType.Repaint && WorldRendererUtility.DrawingMap)
             {
                 Current.Game.GetComponent<GameComponent_Alert>()?.DrawIndicatorIfActive();
             }

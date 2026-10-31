@@ -19,7 +19,7 @@ Colony Alert is manual, and it always will be. It never switches on by itself wh
 [list]
 [*][b]Key:[/b] Change it in Options, Controls, Keyboard Configuration, under "In-game global". The default is F9.
 [*][b]What switches:[/b] Turn each kind of setting on or off, including animals' and mechanoids' allowed areas.
-[*][b]Display:[/b] Turn the red border, the switching sound and the switching message on or off.
+[*][b]Display:[/b] Turn the red border, the ALERT banner, the switching sound and the switching message on or off.
 [/list]
 
 [h2]FAQ[/h2]

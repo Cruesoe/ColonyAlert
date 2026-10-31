@@ -39,6 +39,7 @@ namespace ColonyAlert
             listing.GapLine();
             listing.Label("ColonyAlert_SettingsDisplay".Translate());
             listing.CheckboxLabeled("ColonyAlert_SettingBorder".Translate(), ref Settings.border);
+            listing.CheckboxLabeled("ColonyAlert_SettingBanner".Translate(), ref Settings.banner);
             listing.CheckboxLabeled("ColonyAlert_SettingSound".Translate(), ref Settings.sound);
             listing.CheckboxLabeled("ColonyAlert_SettingMessage".Translate(), ref Settings.message);
             listing.End();

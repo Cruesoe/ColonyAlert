@@ -21,7 +21,6 @@ namespace ColonyAlert
         private const float MainButtonsHeight = 35f;
         private const float BorderThickness = 3f;
         private const int SeedInterval = 250;
-        private const int BannerTipId = 0x434C4154;
 
         private static readonly Color AlertRed = new Color(0.8f, 0.1f, 0.1f, 0.85f);
 
@@ -43,7 +42,9 @@ namespace ColonyAlert
             // Save every pawn's current settings to the status being left before applying any
             foreach (Pawn pawn in pawns)
             {
-                leaving[pawn.GetUniqueLoadID()] = PawnSettings.Capture(pawn);
+                string id = pawn.GetUniqueLoadID();
+                leaving.TryGetValue(id, out PawnSettings? previous);
+                leaving[id] = PawnSettings.Capture(pawn, previous);
             }
             // Pawns with nothing saved for the new status keep their current settings
             foreach (Pawn pawn in pawns)
@@ -87,7 +88,7 @@ namespace ColonyAlert
         public override void GameComponentOnGUI()
         {
             // This runs before the window stack, so leave keys alone while the key binding dialog is waiting for one
-            if (Event.current.type == EventType.KeyDown && !Find.WindowStack.IsOpen<Dialog_DefineBinding>() && AlertDefOf.ColonyAlert_Toggle.KeyDownEvent)
+            if (Event.current.type == EventType.KeyDown && !Find.WindowStack.IsOpen<Dialog_DefineBinding>() && !TypingInTextField() && AlertDefOf.ColonyAlert_Toggle.KeyDownEvent)
             {
                 Toggle();
                 Event.current.Use();
@@ -102,7 +103,7 @@ namespace ColonyAlert
 
         public void DrawIndicatorIfActive()
         {
-            if (alert && Find.ScreenshotModeHandler?.Active != true)
+            if (alert && Event.current.type == EventType.Repaint && Find.ScreenshotModeHandler?.Active != true)
             {
                 DrawIndicator();
             }
@@ -118,6 +119,13 @@ namespace ColonyAlert
                 normal ??= new Dictionary<string, PawnSettings>();
                 alerted ??= new Dictionary<string, PawnSettings>();
             }
+        }
+
+        // Function keys type nothing, so they still work while a text field has focus
+        private static bool TypingInTextField()
+        {
+            KeyCode key = Event.current.keyCode;
+            return GUIUtility.keyboardControl != 0 && (key < KeyCode.F1 || key > KeyCode.F15);
         }
 
         private static List<Pawn> TrackedPawns()
@@ -141,7 +149,7 @@ namespace ColonyAlert
 
         private void DrawIndicator()
         {
-            if (AlertMod.Settings.border && Event.current.type == EventType.Repaint)
+            if (AlertMod.Settings.border)
             {
                 float width = UI.screenWidth;
                 float height = UI.screenHeight;
@@ -150,6 +158,11 @@ namespace ColonyAlert
                 Widgets.DrawBoxSolid(new Rect(0f, height - BorderThickness, width, BorderThickness), AlertRed);
                 Widgets.DrawBoxSolid(new Rect(0f, 0f, BorderThickness, height), AlertRed);
                 Widgets.DrawBoxSolid(new Rect(width - BorderThickness, 0f, BorderThickness, height), AlertRed);
+            }
+
+            if (!AlertMod.Settings.banner)
+            {
+                return;
             }
 
             Rect banner = new Rect((UI.screenWidth - BannerWidth) / 2f, UI.screenHeight - MainButtonsHeight - BannerHeight - 8f, BannerWidth, BannerHeight);
@@ -167,7 +180,6 @@ namespace ColonyAlert
             Widgets.Label(new Rect(banner.x + TextInset, banner.y, BannerWidth - TextInset - StripeWidth, BannerHeight), bannerLabel);
             Text.Anchor = TextAnchor.UpperLeft;
             Text.Font = GameFont.Small;
-            TooltipHandler.TipRegion(banner, () => "ColonyAlert_BannerTip".Translate(AlertDefOf.ColonyAlert_Toggle.MainKeyLabel), BannerTipId);
         }
     }
 }
