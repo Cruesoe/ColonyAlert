@@ -36,10 +36,12 @@ namespace ColonyAlert
             {
                 TooltipHandler.TipRegion(mechRow, "ColonyAlert_SettingMechanoidsBiotech".Translate());
             }
+            listing.CheckboxLabeled("ColonyAlert_SettingNewArrivals".Translate(), ref Settings.newArrivals, "ColonyAlert_SettingNewArrivalsTip".Translate());
             listing.GapLine();
             listing.Label("ColonyAlert_SettingsDisplay".Translate());
             listing.CheckboxLabeled("ColonyAlert_SettingBorder".Translate(), ref Settings.border);
             listing.CheckboxLabeled("ColonyAlert_SettingBanner".Translate(), ref Settings.banner);
+            listing.CheckboxLabeled("ColonyAlert_SettingTabMarker".Translate(), ref Settings.tabMarker, "ColonyAlert_SettingTabMarkerTip".Translate());
             listing.CheckboxLabeled("ColonyAlert_SettingSound".Translate(), ref Settings.sound);
             listing.CheckboxLabeled("ColonyAlert_SettingMessage".Translate(), ref Settings.message);
             listing.End();

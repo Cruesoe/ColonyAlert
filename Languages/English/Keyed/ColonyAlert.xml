@@ -16,9 +16,14 @@
   <ColonyAlert_SettingAnimals>Tame animals' allowed areas</ColonyAlert_SettingAnimals>
   <ColonyAlert_SettingMechanoids>Colony mechanoids' allowed areas</ColonyAlert_SettingMechanoids>
   <ColonyAlert_SettingMechanoidsBiotech>Requires Biotech.</ColonyAlert_SettingMechanoidsBiotech>
+  <ColonyAlert_SettingNewArrivals>New arrivals during alert keep their arrival settings as normal</ColonyAlert_SettingNewArrivals>
+  <ColonyAlert_SettingNewArrivalsTip>When on, colonists who join during an alert go back to the settings they arrived with when you stand down. When off, they keep whatever they have when you stand down.</ColonyAlert_SettingNewArrivalsTip>
   <ColonyAlert_SettingsDisplay>Display:</ColonyAlert_SettingsDisplay>
   <ColonyAlert_SettingBorder>Red screen border during alert</ColonyAlert_SettingBorder>
   <ColonyAlert_SettingBanner>ALERT banner during alert</ColonyAlert_SettingBanner>
+  <ColonyAlert_SettingTabMarker>Mark tabs that show alert settings</ColonyAlert_SettingTabMarker>
+  <ColonyAlert_SettingTabMarkerTip>During alert, the Work, Schedule, Assign, Animals and Mechs tabs show a warning below the table when they hold settings that switch with alert status.</ColonyAlert_SettingTabMarkerTip>
+  <ColonyAlert_TabMarker>Alert status: these are the alert settings</ColonyAlert_TabMarker>
   <ColonyAlert_SettingSound>Play a sound when switching</ColonyAlert_SettingSound>
   <ColonyAlert_SettingMessage>Show a message when switching</ColonyAlert_SettingMessage>
 </LanguageData>

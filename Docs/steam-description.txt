@@ -11,6 +11,7 @@ Colony Alert is manual, and it always will be. It never switches on by itself wh
 [*][b]What switches:[/b] Each colonist's allowed area, schedule, work priorities, apparel, food, drug and reading policies, and hostility response, plus tame animals' and colony mechanoids' allowed areas.
 [*][b]No setup:[/b] The first time you go on alert, your colonists keep their normal settings until you change them.
 [*][b]Always visible:[/b] A red border and an ALERT banner stay on screen while alert status is on. Press the key again to stand down.
+[*][b]Marked tabs:[/b] While alert status is on, the Work, Schedule, Assign, Animals and Mechs tabs say that you are looking at the alert settings.
 [*][b]New arrivals:[/b] Colonists who join during an alert keep the settings they arrived with as their normal ones.
 [*][b]Nothing breaks:[/b] If you delete an area or policy, colonists simply keep their current one for that setting.
 [/list]
@@ -18,8 +19,14 @@ Colony Alert is manual, and it always will be. It never switches on by itself wh
 [h2]Settings[/h2]
 [list]
 [*][b]Key:[/b] Change it in Options, Controls, Keyboard Configuration, under "In-game global". The default is F9.
-[*][b]What switches:[/b] Turn each kind of setting on or off, including animals' and mechanoids' allowed areas.
-[*][b]Display:[/b] Turn the red border, the ALERT banner, the switching sound and the switching message on or off.
+[*][b]What switches:[/b] Turn each kind of setting on or off, including work priorities, schedules and animals' and mechanoids' allowed areas.
+[*][b]New arrivals:[/b] Choose whether colonists who join during an alert go back to their arrival settings when you stand down.
+[*][b]Display:[/b] Turn the red border, the ALERT banner, the tab marker, the switching sound and the switching message on or off.
+[/list]
+
+[h2]Requirements[/h2]
+[list]
+[*]Harmony
 [/list]
 
 [h2]FAQ[/h2]
