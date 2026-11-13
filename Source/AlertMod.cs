@@ -7,6 +7,10 @@ namespace ColonyAlert
     {
         public static AlertSettings Settings = null!;
 
+        // Settings page text, translated on first draw and kept for the session
+        private static string? switchHeader, areas, schedules, work, apparel, food, drugs, reading, hostility, animals, mechanoids, mechanoidsBiotech,
+            newArrivals, newArrivalsTip, displayHeader, border, banner, tabMarker, tabMarkerTip, sound, message;
+
         public AlertMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<AlertSettings>();
@@ -16,35 +20,64 @@ namespace ColonyAlert
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
+            if (switchHeader == null)
+            {
+                TranslateLabels();
+            }
             Listing_Standard listing = new Listing_Standard();
             listing.Begin(inRect);
-            listing.Label("ColonyAlert_SettingsSwitch".Translate());
-            listing.CheckboxLabeled("ColonyAlert_SettingAreas".Translate(), ref Settings.areas);
-            listing.CheckboxLabeled("ColonyAlert_SettingSchedules".Translate(), ref Settings.schedules);
-            listing.CheckboxLabeled("ColonyAlert_SettingWork".Translate(), ref Settings.work);
-            listing.CheckboxLabeled("ColonyAlert_SettingApparel".Translate(), ref Settings.apparel);
-            listing.CheckboxLabeled("ColonyAlert_SettingFood".Translate(), ref Settings.food);
-            listing.CheckboxLabeled("ColonyAlert_SettingDrugs".Translate(), ref Settings.drugs);
-            listing.CheckboxLabeled("ColonyAlert_SettingReading".Translate(), ref Settings.reading);
-            listing.CheckboxLabeled("ColonyAlert_SettingHostility".Translate(), ref Settings.hostility);
-            listing.CheckboxLabeled("ColonyAlert_SettingAnimals".Translate(), ref Settings.animals);
+            listing.Label(switchHeader);
+            listing.CheckboxLabeled(areas, ref Settings.areas);
+            listing.CheckboxLabeled(schedules, ref Settings.schedules);
+            listing.CheckboxLabeled(work, ref Settings.work);
+            listing.CheckboxLabeled(apparel, ref Settings.apparel);
+            listing.CheckboxLabeled(food, ref Settings.food);
+            listing.CheckboxLabeled(drugs, ref Settings.drugs);
+            listing.CheckboxLabeled(reading, ref Settings.reading);
+            listing.CheckboxLabeled(hostility, ref Settings.hostility);
+            listing.CheckboxLabeled(animals, ref Settings.animals);
             // Colony mechanoids need Biotech, so the option is greyed out without it
             Rect mechRow = listing.GetRect(Text.LineHeight);
             listing.Gap(listing.verticalSpacing);
-            Widgets.CheckboxLabeled(mechRow, "ColonyAlert_SettingMechanoids".Translate(), ref Settings.mechanoids, !ModsConfig.BiotechActive);
+            Widgets.CheckboxLabeled(mechRow, mechanoids, ref Settings.mechanoids, !ModsConfig.BiotechActive);
             if (!ModsConfig.BiotechActive)
             {
-                TooltipHandler.TipRegion(mechRow, "ColonyAlert_SettingMechanoidsBiotech".Translate());
+                TooltipHandler.TipRegion(mechRow, mechanoidsBiotech);
             }
-            listing.CheckboxLabeled("ColonyAlert_SettingNewArrivals".Translate(), ref Settings.newArrivals, "ColonyAlert_SettingNewArrivalsTip".Translate());
+            listing.CheckboxLabeled(newArrivals, ref Settings.newArrivals, newArrivalsTip);
             listing.GapLine();
-            listing.Label("ColonyAlert_SettingsDisplay".Translate());
-            listing.CheckboxLabeled("ColonyAlert_SettingBorder".Translate(), ref Settings.border);
-            listing.CheckboxLabeled("ColonyAlert_SettingBanner".Translate(), ref Settings.banner);
-            listing.CheckboxLabeled("ColonyAlert_SettingTabMarker".Translate(), ref Settings.tabMarker, "ColonyAlert_SettingTabMarkerTip".Translate());
-            listing.CheckboxLabeled("ColonyAlert_SettingSound".Translate(), ref Settings.sound);
-            listing.CheckboxLabeled("ColonyAlert_SettingMessage".Translate(), ref Settings.message);
+            listing.Label(displayHeader);
+            listing.CheckboxLabeled(border, ref Settings.border);
+            listing.CheckboxLabeled(banner, ref Settings.banner);
+            listing.CheckboxLabeled(tabMarker, ref Settings.tabMarker, tabMarkerTip);
+            listing.CheckboxLabeled(sound, ref Settings.sound);
+            listing.CheckboxLabeled(message, ref Settings.message);
             listing.End();
+        }
+
+        private static void TranslateLabels()
+        {
+            switchHeader = "ColonyAlert_SettingsSwitch".Translate();
+            areas = "ColonyAlert_SettingAreas".Translate();
+            schedules = "ColonyAlert_SettingSchedules".Translate();
+            work = "ColonyAlert_SettingWork".Translate();
+            apparel = "ColonyAlert_SettingApparel".Translate();
+            food = "ColonyAlert_SettingFood".Translate();
+            drugs = "ColonyAlert_SettingDrugs".Translate();
+            reading = "ColonyAlert_SettingReading".Translate();
+            hostility = "ColonyAlert_SettingHostility".Translate();
+            animals = "ColonyAlert_SettingAnimals".Translate();
+            mechanoids = "ColonyAlert_SettingMechanoids".Translate();
+            mechanoidsBiotech = "ColonyAlert_SettingMechanoidsBiotech".Translate();
+            newArrivals = "ColonyAlert_SettingNewArrivals".Translate();
+            newArrivalsTip = "ColonyAlert_SettingNewArrivalsTip".Translate();
+            displayHeader = "ColonyAlert_SettingsDisplay".Translate();
+            border = "ColonyAlert_SettingBorder".Translate();
+            banner = "ColonyAlert_SettingBanner".Translate();
+            tabMarker = "ColonyAlert_SettingTabMarker".Translate();
+            tabMarkerTip = "ColonyAlert_SettingTabMarkerTip".Translate();
+            sound = "ColonyAlert_SettingSound".Translate();
+            message = "ColonyAlert_SettingMessage".Translate();
         }
     }
 }

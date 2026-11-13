@@ -68,7 +68,7 @@ namespace ColonyAlert
                     }
                 }
             }
-            if (s.apparel && pawn.outfits != null)
+            if (s.apparel && pawn.outfits != null && !pawn.IsQuestLodger())
             {
                 result.apparelId = pawn.outfits.CurrentApparelPolicy?.id ?? -1;
             }
@@ -137,7 +137,7 @@ namespace ColonyAlert
                 }
             }
 
-            if (s.apparel && apparelId >= 0 && pawn.outfits != null)
+            if (s.apparel && apparelId >= 0 && pawn.outfits != null && !pawn.IsQuestLodger())
             {
                 ApparelPolicy? policy = Current.Game.outfitDatabase.AllOutfits.Find(p => p.id == apparelId);
                 if (policy != null)

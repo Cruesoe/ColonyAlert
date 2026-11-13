@@ -7,7 +7,6 @@ using Verse;
 namespace ColonyAlert
 {
     /// <summary>Marks pawn table tabs (Work, Schedule, Assign, Animals, Mechs) that show settings switched by alert status while it is on.</summary>
-    [StaticConstructorOnStartup]
     public static class TabMarker
     {
         private const float IconSize = 24f;
