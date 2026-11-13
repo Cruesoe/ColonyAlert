@@ -4,7 +4,6 @@
     <RootNamespace>ColonyAlert</RootNamespace>
     <AssemblyName>ColonyAlert</AssemblyName>
     <Nullable>enable</Nullable>
-    <UseHarmony>false</UseHarmony>
     <UnityModules>CoreModule;IMGUIModule;TextRenderingModule</UnityModules>
   </PropertyGroup>
 

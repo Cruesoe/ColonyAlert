@@ -33,6 +33,8 @@ namespace ColonyAlert
         {
         }
 
+        public bool Active => alert;
+
         public void Toggle()
         {
             Dictionary<string, PawnSettings> leaving = alert ? alerted : normal;
@@ -71,7 +73,7 @@ namespace ColonyAlert
         public override void GameComponentTick()
         {
             // Pawns who join during alert get their current settings as their normal ones
-            if (!alert || Find.TickManager.TicksGame % SeedInterval != 0)
+            if (!alert || !AlertMod.Settings.newArrivals || Find.TickManager.TicksGame % SeedInterval != 0)
             {
                 return;
             }
