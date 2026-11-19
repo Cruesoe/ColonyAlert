@@ -24,7 +24,7 @@
   <ColonyAlert_SettingIndicatorBanner>Banner on screen</ColonyAlert_SettingIndicatorBanner>
   <ColonyAlert_SettingIndicatorNotification>Permanent notification in the alerts list</ColonyAlert_SettingIndicatorNotification>
   <ColonyAlert_SettingIndicatorOff>Off</ColonyAlert_SettingIndicatorOff>
-  <ColonyAlert_Notification>Alert status</ColonyAlert_Notification>
+  <ColonyAlert_Notification>Colony on alert</ColonyAlert_Notification>
   <ColonyAlert_NotificationExplanation>The colony is on alert status and colonists are using their alert settings.\n\nPress {0} to stand down and restore the normal settings.</ColonyAlert_NotificationExplanation>
   <ColonyAlert_NotificationExplanationUnbound>The colony is on alert status and colonists are using their alert settings.\n\nNo key is set to stand down. Set one in Options, Controls, Keyboard Configuration, under "In-game global".</ColonyAlert_NotificationExplanationUnbound>
   <ColonyAlert_SettingTabMarker>Mark tabs that show alert settings</ColonyAlert_SettingTabMarker>
