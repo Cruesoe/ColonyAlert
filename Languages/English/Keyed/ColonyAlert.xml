@@ -26,6 +26,7 @@
   <ColonyAlert_SettingIndicatorOff>Off</ColonyAlert_SettingIndicatorOff>
   <ColonyAlert_Notification>Alert status</ColonyAlert_Notification>
   <ColonyAlert_NotificationExplanation>The colony is on alert status and colonists are using their alert settings.\n\nPress {0} to stand down and restore the normal settings.</ColonyAlert_NotificationExplanation>
+  <ColonyAlert_NotificationExplanationUnbound>The colony is on alert status and colonists are using their alert settings.\n\nNo key is set to stand down. Set one in Options, Controls, Keyboard Configuration, under "In-game global".</ColonyAlert_NotificationExplanationUnbound>
   <ColonyAlert_SettingTabMarker>Mark tabs that show alert settings</ColonyAlert_SettingTabMarker>
   <ColonyAlert_SettingTabMarkerTip>During alert, the Work, Schedule, Assign, Animals and Mechs tabs show a warning below the table when they hold settings that switch with alert status.</ColonyAlert_SettingTabMarkerTip>
   <ColonyAlert_TabMarker>Alert status: these are the alert settings</ColonyAlert_TabMarker>

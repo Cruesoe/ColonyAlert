@@ -8,7 +8,7 @@ namespace ColonyAlert
     {
         static HarmonyStartup()
         {
-            new Harmony("cruesoe.colonyalert").PatchAll();
+            new Harmony("cruesoe.colonyalert").PatchAll(typeof(HarmonyStartup).Assembly);
         }
     }
 }

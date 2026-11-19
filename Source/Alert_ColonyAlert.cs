@@ -7,8 +7,6 @@ namespace ColonyAlert
     /// <summary>Permanent entry in the alerts list while alert status is on, when the indicator is set to notification.</summary>
     public class Alert_ColonyAlert : Alert
     {
-        private static readonly Color Background = new Color(0.5f, 0.05f, 0.05f, 0.6f);
-
         // Explanation text, rebuilt only when the toggle key changes
         private KeyCode explanationKey = KeyCode.None;
         private TaggedString explanation;
@@ -16,10 +14,11 @@ namespace ColonyAlert
         public Alert_ColonyAlert()
         {
             defaultLabel = "ColonyAlert_Notification".Translate();
-            defaultPriority = AlertPriority.High;
+            defaultPriority = AlertPriority.Critical;
         }
 
-        protected override Color BGColor => Background;
+        // Same pulsing red as critical alerts such as major break risk, without their repeated messages
+        protected override Color BGColor => Alert_Critical.BgColor();
 
         public override AlertReport GetReport()
         {
@@ -36,7 +35,7 @@ namespace ColonyAlert
             if (key != explanationKey || explanation.NullOrEmpty())
             {
                 explanationKey = key;
-                explanation = "ColonyAlert_NotificationExplanation".Translate(key.ToStringReadable());
+                explanation = key == KeyCode.None ? "ColonyAlert_NotificationExplanationUnbound".Translate() : "ColonyAlert_NotificationExplanation".Translate(key.ToStringReadable());
             }
             return explanation;
         }
