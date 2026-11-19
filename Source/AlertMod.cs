@@ -7,9 +7,11 @@ namespace ColonyAlert
     {
         public static AlertSettings Settings = null!;
 
+        private const float IndicatorIndent = 24f;
+
         // Settings page text, translated on first draw and kept for the session
         private static string? switchHeader, areas, schedules, work, apparel, food, drugs, reading, hostility, animals, mechanoids, mechanoidsBiotech,
-            newArrivals, newArrivalsTip, displayHeader, border, banner, tabMarker, tabMarkerTip, sound, message;
+            newArrivals, newArrivalsTip, displayHeader, border, indicator, indicatorBanner, indicatorNotification, indicatorOff, tabMarker, tabMarkerTip, sound, message;
 
         public AlertMod(ModContentPack content) : base(content)
         {
@@ -48,7 +50,19 @@ namespace ColonyAlert
             listing.GapLine();
             listing.Label(displayHeader);
             listing.CheckboxLabeled(border, ref Settings.border);
-            listing.CheckboxLabeled(banner, ref Settings.banner);
+            listing.Label(indicator);
+            if (listing.RadioButton(indicatorBanner, Settings.indicator == IndicatorStyle.Banner, IndicatorIndent))
+            {
+                Settings.indicator = IndicatorStyle.Banner;
+            }
+            if (listing.RadioButton(indicatorNotification, Settings.indicator == IndicatorStyle.Notification, IndicatorIndent))
+            {
+                Settings.indicator = IndicatorStyle.Notification;
+            }
+            if (listing.RadioButton(indicatorOff, Settings.indicator == IndicatorStyle.Off, IndicatorIndent))
+            {
+                Settings.indicator = IndicatorStyle.Off;
+            }
             listing.CheckboxLabeled(tabMarker, ref Settings.tabMarker, tabMarkerTip);
             listing.CheckboxLabeled(sound, ref Settings.sound);
             listing.CheckboxLabeled(message, ref Settings.message);
@@ -73,7 +87,10 @@ namespace ColonyAlert
             newArrivalsTip = "ColonyAlert_SettingNewArrivalsTip".Translate();
             displayHeader = "ColonyAlert_SettingsDisplay".Translate();
             border = "ColonyAlert_SettingBorder".Translate();
-            banner = "ColonyAlert_SettingBanner".Translate();
+            indicator = "ColonyAlert_SettingIndicator".Translate();
+            indicatorBanner = "ColonyAlert_SettingIndicatorBanner".Translate();
+            indicatorNotification = "ColonyAlert_SettingIndicatorNotification".Translate();
+            indicatorOff = "ColonyAlert_SettingIndicatorOff".Translate();
             tabMarker = "ColonyAlert_SettingTabMarker".Translate();
             tabMarkerTip = "ColonyAlert_SettingTabMarkerTip".Translate();
             sound = "ColonyAlert_SettingSound".Translate();

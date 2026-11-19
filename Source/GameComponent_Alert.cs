@@ -162,7 +162,9 @@ namespace ColonyAlert
                 Widgets.DrawBoxSolid(new Rect(width - BorderThickness, 0f, BorderThickness, height), AlertRed);
             }
 
-            if (!AlertMod.Settings.banner)
+            // Storytellers with alerts disabled (Tutor) never show the notification, so the banner stands in for it
+            IndicatorStyle style = AlertMod.Settings.indicator;
+            if (style == IndicatorStyle.Off || (style == IndicatorStyle.Notification && Find.Storyteller?.def?.disableAlerts != true))
             {
                 return;
             }
