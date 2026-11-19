@@ -27,9 +27,9 @@ Colony Alert is manual, and it always will be. It never switches on by itself wh
 
 Each status remembers its own settings for every colonist: allowed area, schedule, work priorities, apparel, food, drug and reading policies, and hostility response. Tame animals' and colony mechanoids' allowed areas are remembered too.
 
-While alert status is on, a red border and an ALERT banner stay on screen, and the Work, Schedule, Assign, Animals and Mechs tabs say that they are showing the alert settings. Press the key again to return to normal.
+While alert status is on, a red border and an ALERT banner (or, if you prefer, a permanent notification in the alerts list) stay on screen, and the Work, Schedule, Assign, Animals and Mechs tabs say that they are showing the alert settings. Press the key again to return to normal.
 
-The default key is F9. Change it in Options -&gt; Controls -&gt; Keyboard Configuration: Modify -&gt; In-game global -&gt; Toggle alert status. Each kind of setting that switches, how new arrivals are handled, the border, the banner, the tab marker, the sound and the message can each be turned off in the mod settings.
+The default key is F9. Change it in Options -&gt; Controls -&gt; Keyboard Configuration: Modify -&gt; In-game global -&gt; Toggle alert status. Each kind of setting that switches, how new arrivals are handled, the border, the banner, the tab marker, the sound and the message can each be turned off in the mod settings, where you also choose between the banner and the notification.
 
 Safe to add to an existing save. Return to normal before removing the mod, or colonists keep their alert settings.</description>
 </ModMetaData>

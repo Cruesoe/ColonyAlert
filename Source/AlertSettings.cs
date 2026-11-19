@@ -16,7 +16,7 @@ namespace ColonyAlert
         public bool mechanoids = true;
         public bool newArrivals = true;
         public bool border = true;
-        public bool banner = true;
+        public IndicatorStyle indicator = IndicatorStyle.Banner;
         public bool tabMarker = true;
         public bool sound = true;
         public bool message = true;
@@ -35,7 +35,17 @@ namespace ColonyAlert
             Scribe_Values.Look(ref mechanoids, "mechanoids", true);
             Scribe_Values.Look(ref newArrivals, "newArrivals", true);
             Scribe_Values.Look(ref border, "border", true);
-            Scribe_Values.Look(ref banner, "banner", true);
+            Scribe_Values.Look(ref indicator, "indicator", IndicatorStyle.Banner);
+            // Settings saved before the indicator choice had only a banner on/off switch
+            if (Scribe.mode == LoadSaveMode.LoadingVars)
+            {
+                bool banner = true;
+                Scribe_Values.Look(ref banner, "banner", true);
+                if (!banner && indicator == IndicatorStyle.Banner)
+                {
+                    indicator = IndicatorStyle.Off;
+                }
+            }
             Scribe_Values.Look(ref tabMarker, "tabMarker", true);
             Scribe_Values.Look(ref sound, "sound", true);
             Scribe_Values.Look(ref message, "message", true);

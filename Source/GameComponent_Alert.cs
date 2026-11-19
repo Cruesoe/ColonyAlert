@@ -162,7 +162,7 @@ namespace ColonyAlert
                 Widgets.DrawBoxSolid(new Rect(width - BorderThickness, 0f, BorderThickness, height), AlertRed);
             }
 
-            if (!AlertMod.Settings.banner)
+            if (AlertMod.Settings.indicator != IndicatorStyle.Banner)
             {
                 return;
             }
