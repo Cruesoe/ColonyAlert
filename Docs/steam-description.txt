@@ -11,6 +11,7 @@ Colony Alert is manual, and it always will be. It never switches on by itself wh
 [*][b]What switches:[/b] Each colonist's allowed area, schedule, work priorities, apparel, food, drug and reading policies, and hostility response, plus tame animals' and colony mechanoids' allowed areas.
 [*][b]No setup:[/b] The first time you go on alert, your colonists keep their normal settings until you change them.
 [*][b]Always visible:[/b] A red border and an ALERT banner, or a permanent notification in the alerts list, stay on screen while alert status is on. Press the key again to stand down.
+[*][b]Your border, your way:[/b] Make the border as thin or as wide as you like, as a solid line or a soft glow that fades inwards and can pulse slowly.
 [*][b]Marked tabs:[/b] While alert status is on, the Work, Schedule, Assign, Animals and Mechs tabs say that you are looking at the alert settings.
 [*][b]New arrivals:[/b] Colonists who join during an alert keep the settings they arrived with as their normal ones.
 [*][b]Nothing breaks:[/b] If you delete an area or policy, colonists simply keep their current one for that setting.
@@ -21,10 +22,25 @@ Colony Alert is manual, and it always will be. It never switches on by itself wh
 [*][b]Key:[/b] Change it in Options, Controls, Keyboard Configuration, under "In-game global". The default is F9.
 [*][b]What switches:[/b] Turn each kind of setting on or off, including work priorities, schedules and animals' and mechanoids' allowed areas.
 [*][b]New arrivals:[/b] Choose whether colonists who join during an alert go back to their arrival settings when you stand down.
-[*][b]Display:[/b] Show the ALERT indicator as a banner on screen, as a permanent notification in the alerts list, or not at all, and turn the red border, the tab marker, the switching sound and the switching message on or off.
+[*][b]Border:[/b] Turn the red border on or off, and set its width (1 to 40 pixels, default 3), its opacity, and whether it is a solid line or a glow. The glow can pulse slowly, which tells it apart from other mods' borders.
+[*][b]Display:[/b] Show the ALERT indicator as a banner on screen, as a permanent notification in the alerts list, or not at all, and turn the tab marker, the switching sound and the switching message on or off.
 [/list]
 
 [h2]Compatibility[/h2]
 Safe to add to an existing save. Stand down from alert before removing the mod, or your colonists keep their alert settings.
 
 Better Pawn Control is for many named presets, while Colony Alert is one key and two statuses with nothing to set up. You can use both, but not for the same settings, or they overwrite each other: turn the overlapping ones off in either mod.
+
+[h2]Credits[/h2]
+Thanks to [b]More Visible Pause[/b] for the idea of a screen border.
+
+[h2]A note on AI[/h2]
+I have used AI in the development of my mods.
+
+I've spent 30 years of my adult life working in IT. I'm even part of an AI team. AI is here to stay, and it's a tool: used correctly, it makes development more streamlined. It doesn't replace human oversight, and it should not be used by those who don't understand its output.
+
+I understand the concerns some people have about AI, and I agree with many of them. AI should not be used for art. It should not be used to take people's jobs, or as an alternative to paying workers.
+
+I use it to streamline my development process: to analyze errors, to collect comments from Steam, Reddit and Discord, and to organize them into to-do lists. In short, it does what I can do, but quicker. Used correctly, it can greatly enhance the whole development process and life cycle.
+
+Ultimately, I make mods for myself, things I want. If you want them too, great.
