@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -11,6 +12,9 @@ namespace ColonyAlert
     {
         // GetPriority reports 3 for every enabled work type when manual priorities are off, so read the stored values directly
         private static readonly FieldInfo? PrioritiesField = typeof(Pawn_WorkSettings).GetField("priorities", BindingFlags.Instance | BindingFlags.NonPublic);
+
+        // Allowed area for every map the pawn has one on; the public property only reaches the pawn's current map
+        private static readonly AccessTools.FieldRef<Pawn_PlayerSettings, Dictionary<Map, Area>> AllowedAreas = AccessTools.FieldRefAccess<Pawn_PlayerSettings, Dictionary<Map, Area>>("allowedAreas");
 
         // Allowed area ID by map uniqueID; -1 means unrestricted
         private Dictionary<int, int>? areas;
@@ -43,9 +47,14 @@ namespace ColonyAlert
             result.areas = previous?.areas?.Where(e => Find.Maps.Any(m => m.uniqueID == e.Key)).ToDictionary(e => e.Key, e => e.Value) ?? new Dictionary<int, int>();
             bool humanlike = pawn.RaceProps.Humanlike;
 
-            if (AreasSwitched(pawn) && pawn.playerSettings != null && pawn.playerSettings.SupportsAllowedAreas && pawn.MapHeld != null)
+            // Every map, so pawns away on a caravan or another map switch too; a map with no area set is unrestricted
+            if (AreasSwitched(pawn) && pawn.playerSettings != null && pawn.playerSettings.SupportsAllowedAreas)
             {
-                result.areas[pawn.MapHeld.uniqueID] = pawn.playerSettings.AreaRestrictionInPawnCurrentMap?.ID ?? -1;
+                Dictionary<Map, Area> allowed = AllowedAreas(pawn.playerSettings);
+                foreach (Map map in Find.Maps)
+                {
+                    result.areas[map.uniqueID] = allowed.TryGetValue(map, out Area? area) && area != null ? area.ID : -1;
+                }
             }
             if (!humanlike)
             {
@@ -97,18 +106,32 @@ namespace ColonyAlert
         {
             AlertSettings s = AlertMod.Settings;
 
-            if (areas != null && AreasSwitched(pawn) && pawn.playerSettings != null && pawn.MapHeld is Map map && areas.TryGetValue(map.uniqueID, out int areaId))
+            if (areas != null && AreasSwitched(pawn) && pawn.playerSettings != null)
             {
-                if (areaId < 0)
+                Dictionary<Map, Area> allowed = AllowedAreas(pawn.playerSettings);
+                foreach (Map map in Find.Maps)
                 {
-                    pawn.playerSettings.AreaRestrictionInPawnCurrentMap = null;
-                }
-                else
-                {
-                    Area? area = map.areaManager.AllAreas.Find(a => a.ID == areaId && a.AssignableAsAllowed());
-                    if (area != null)
+                    if (!areas.TryGetValue(map.uniqueID, out int areaId))
+                    {
+                        continue;
+                    }
+                    Area? area = null;
+                    if (areaId >= 0)
+                    {
+                        area = map.areaManager.AllAreas.Find(a => a.ID == areaId && a.AssignableAsAllowed());
+                        if (area == null)
+                        {
+                            continue;
+                        }
+                    }
+                    // The current map goes through the property, which stops a job outside the new area
+                    if (map == pawn.MapHeld)
                     {
                         pawn.playerSettings.AreaRestrictionInPawnCurrentMap = area;
+                    }
+                    else
+                    {
+                        allowed[map] = area!;
                     }
                 }
             }

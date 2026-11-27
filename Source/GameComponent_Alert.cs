@@ -19,10 +19,7 @@ namespace ColonyAlert
         private const float TextInset = 80f;
         private const float StripeWidth = 24f;
         private const float MainButtonsHeight = 35f;
-        private const float BorderThickness = 3f;
         private const int SeedInterval = 250;
-
-        private static readonly Color AlertRed = new Color(0.8f, 0.1f, 0.1f, 0.85f);
 
         private bool alert;
         private Dictionary<string, PawnSettings> normal = new Dictionary<string, PawnSettings>();
@@ -153,13 +150,7 @@ namespace ColonyAlert
         {
             if (AlertMod.Settings.border)
             {
-                float width = UI.screenWidth;
-                float height = UI.screenHeight;
-                Widgets.DrawBoxSolid(new Rect(0f, 0f, width, BorderThickness), AlertRed);
-                Widgets.DrawBoxSolid(new Rect(0f, height - MainButtonsHeight - BorderThickness, width, BorderThickness), AlertRed);
-                Widgets.DrawBoxSolid(new Rect(0f, height - BorderThickness, width, BorderThickness), AlertRed);
-                Widgets.DrawBoxSolid(new Rect(0f, 0f, BorderThickness, height), AlertRed);
-                Widgets.DrawBoxSolid(new Rect(width - BorderThickness, 0f, BorderThickness, height), AlertRed);
+                AlertBorder.Draw();
             }
 
             // Storytellers with alerts disabled (Tutor) never show the notification, so the banner stands in for it
@@ -173,8 +164,7 @@ namespace ColonyAlert
             GUI.DrawTexture(banner, AlertTextures.Banner);
 
             // The warning icon pulses slowly between full and 55% opacity
-            float pulse = 0.775f + 0.225f * Mathf.Sin(Time.realtimeSinceStartup * 3f);
-            GUI.color = new Color(1f, 1f, 1f, pulse);
+            GUI.color = new Color(1f, 1f, 1f, AlertBorder.Pulse);
             GUI.DrawTexture(new Rect(banner.x + IconInset, banner.y + (BannerHeight - IconSize) / 2f, IconSize, IconSize), AlertTextures.Warning);
             GUI.color = Color.white;
 

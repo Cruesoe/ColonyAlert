@@ -16,6 +16,10 @@ namespace ColonyAlert
         public bool mechanoids = true;
         public bool newArrivals = true;
         public bool border = true;
+        public int borderWidth = AlertBorder.DefaultWidth;
+        public float borderOpacity = AlertBorder.DefaultOpacity;
+        public BorderStyle borderStyle = BorderStyle.Solid;
+        public bool borderPulse = true;
         public IndicatorStyle indicator = IndicatorStyle.Banner;
         public bool tabMarker = true;
         public bool sound = true;
@@ -35,6 +39,15 @@ namespace ColonyAlert
             Scribe_Values.Look(ref mechanoids, "mechanoids", true);
             Scribe_Values.Look(ref newArrivals, "newArrivals", true);
             Scribe_Values.Look(ref border, "border", true);
+            Scribe_Values.Look(ref borderWidth, "borderWidth", AlertBorder.DefaultWidth);
+            Scribe_Values.Look(ref borderOpacity, "borderOpacity", AlertBorder.DefaultOpacity);
+            Scribe_Values.Look(ref borderStyle, "borderStyle", BorderStyle.Solid);
+            Scribe_Values.Look(ref borderPulse, "borderPulse", true);
+            if (Scribe.mode == LoadSaveMode.LoadingVars)
+            {
+                borderWidth = UnityEngine.Mathf.Clamp(borderWidth, AlertBorder.MinWidth, AlertBorder.MaxWidth);
+                borderOpacity = UnityEngine.Mathf.Clamp(borderOpacity, AlertBorder.MinOpacity, 1f);
+            }
             Scribe_Values.Look(ref indicator, "indicator", IndicatorStyle.Banner);
             // Settings saved before the indicator choice had only a banner on/off switch
             if (Scribe.mode == LoadSaveMode.LoadingVars)
