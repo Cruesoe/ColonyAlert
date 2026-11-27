@@ -31,9 +31,6 @@ Safe to add to an existing save. Stand down from alert before removing the mod, 
 
 Better Pawn Control is for many named presets, while Colony Alert is one key and two statuses with nothing to set up. You can use both, but not for the same settings, or they overwrite each other: turn the overlapping ones off in either mod.
 
-[h2]Credits[/h2]
-Thanks to [b]More Visible Pause[/b] for the idea of a screen border.
-
 [h2]A note on AI[/h2]
 I have used AI in the development of my mods.
 
